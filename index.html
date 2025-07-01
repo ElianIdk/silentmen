@@ -4,14 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Preguntas Frecuentes</title>
-
-  <!-- Fuente estilo Carrd -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
       font-family: 'Inter', sans-serif;
-      color
+      color: #212529;
+    }
+    .container {
+      max-width: 700px;
+      margin: 4rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #dee2e6;
+      margin-bottom: 1rem;
+    }
+    .faq-question {
+      cursor: pointer;
+      padding: 1rem 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s ease;
+    }
+    .faq-question:hover {
+      color: #1c7ed6;
+    }
+    .faq-question::after {
+      content: "▾";
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+      color: #868e96;
+    }
+    .faq-question.open::after {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      padding-bottom: 1rem;
+      color: #495057;
+      line-height: 1.6;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #adb5bd;
+    }
+    .footer a {
+      color: #1c7ed6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Preguntas Frecuentes</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Cómo puedo contactarlos?</div>
+      <div class="faq-answer">Puedes escribirnos a contacto@miempresa.com o usar el formulario de contacto.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Cuánto cuesta el servicio?</div>
+      <div class="faq-answer">Nuestros planes comienzan desde $10 al mes. ¡Consulta nuestra sección de precios!</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Puedo cambiar de plan más adelante?</div>
+      <div class="faq-answer">Sí, puedes actualizar o reducir tu plan en cualquier momento desde tu cuenta.</div>
+    </div>
+
+    <div class="footer">
+      Creado con ❤️ por <a href="#">Mi Empresa</a>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach(q => {
+      q.addEventListener("click", () => {
+        q.classList.toggle("open");
+        const a = q.nextElementSibling;
+        a.style.display = a.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>
